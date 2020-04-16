@@ -27,3 +27,21 @@
 6. Rode `yarn sequelize db:create` para criar o banco de dados;
 7. Rode `yarn sequelize db:migrate` para executar as migrations;
 8. Rode `yarn dev` para iniciar o servidor.
+
+
+## 💾 Relacionamento no Sequelize (postgres)
+
+- Models: (users, addresses, techs, user_techs)
+
+1. `1` Usuário possui `N` Endereços
+2. `1` Endereço possui `1` Usuário
+3. `1` Usuário possui `N` Tecnologias
+4. `1` Tecnologia pertence à `N` Usuários
+
+
+## 🚀 Informações Gerais
+
+- Caso queira criar novas tabelas, utilize os seguintes códigos abaixo: 
+
+1. `yarn sequelize migration:create --name=create-xxxxxx` 
+2. `yarn sequelize db:migrate`

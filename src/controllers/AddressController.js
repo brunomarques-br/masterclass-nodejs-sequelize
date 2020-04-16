@@ -3,6 +3,27 @@ const Address = require('../models/Address');
 
 module.exports = {
 
+    async index(req, res){
+        const {user_id} = req.params;
+        
+        const user = await User.findByPk(user_id, {
+            include: {
+                association: 'addresses'
+            }
+        });
+
+        /**
+         * If you want return only addresses of a user_id informed, use this return:
+         * 
+         * return res.json(user.addresses);
+         * 
+         */
+
+        return res.json(user);
+
+
+    },
+
     async store(req, res) {
         const { user_id } = req.params;
         const { zipcode, street, number } = req.body;
